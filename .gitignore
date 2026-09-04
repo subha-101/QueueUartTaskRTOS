@@ -1,0 +1,24 @@
+# Build output
+Debug/
+Release/
+
+# STM32CubeIDE settings
+.settings/
+
+# Object files
+*.o
+*.d
+
+# Generated binaries
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+
+# OS files
+Thumbs.db
+.DS_Store
+
+#VsCode
+*.vscode/
