@@ -55,6 +55,7 @@ xTaskHandle handle_rtc_task;
 
 //Software timers handles
 TimerHandle_t handle_led_timer[4];
+RTC_HandleTypeDef hrtc;
 
 QueueHandle_t queue_data;
 QueueHandle_t queue_print;
@@ -123,8 +124,8 @@ int main(void)
   status = xTaskCreate(led_task, "led", 250, NULL, 2, &handle_led_task);
   configASSERT(status == pdPASS);
 
-//  status = xTaskCreate(rtc_task, "rtc", 250, NULL, 2, &handle_rtc_task);
-//  configASSERT(status == pdPASS);
+  status = xTaskCreate(rtc_task, "rtc", 250, NULL, 2, &handle_rtc_task);
+  configASSERT(status == pdPASS);
 
   //Create the Queue; Here the queue handle should not be NULL if it's null that means no queue is created.
   queue_data = xQueueCreate( 10,sizeof(char));

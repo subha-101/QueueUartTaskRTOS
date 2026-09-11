@@ -68,6 +68,7 @@ extern QueueHandle_t queue_print;
 extern state_t current_state;
 
 extern TimerHandle_t handle_led_timer[4];
+extern RTC_HandleTypeDef hrtc;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -101,6 +102,11 @@ void LED_effect3(void);
 void LED_effect4(void);
 
 void led_effect_callback(TimerHandle_t xTimer);
+
+void configure_rtc_date(RTC_DateTypeDef *date);
+void configure_rtc_time(RTC_TimeTypeDef *time);
+void show_date_time(void);
+int validate_rtc_information(RTC_TimeTypeDef *time , RTC_DateTypeDef *date);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -176,6 +182,7 @@ void led_effect_callback(TimerHandle_t xTimer);
 #define LED2   LD3_Pin
 #define LED3   LD5_Pin
 #define LED4   LD6_Pin
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
